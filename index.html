@@ -4,6 +4,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>bAGun Online Store</title>
+<!-- Bootstrap CSS -->
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
 <style>
   @media only screen and (max-width: 1820px) {
     body {
@@ -16,60 +18,12 @@
     margin: 0;
     padding: 0;
   }
-  nav {
-    background-color: #333;
-    color: white;
-    padding: 10px;
-    text-align: center;
-    position: relative;
-  }
-  nav a {
-    color: white;
-    margin: 0 15px;
-    text-decoration: none;
-  }
-  nav a:hover {
-    text-decoration: underline;
-  }
-  nav .hamburger {
-    display: none;
-    cursor: pointer;
-  }
-  nav .hamburger div {
-    width: 25px;
-    height: 3px;
-    background-color: white;
-    margin: 4px;
-  }
-  nav .menu {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  nav .menu .cart {
-    position: absolute;
-    right: 20px;
-  }
-  nav .cart img {
-    width: 25px;
-    height: 25px;
-    cursor: pointer;
-  }
-  .container {
-    max-width: 1200px;
-    margin: auto;
-    overflow: hidden;
-    padding: 0 20px;
-  }
   .product {
     background-color: #fff;
     margin: 20px;
     padding: 15px;
     border-radius: 5px;
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    display: inline-block;
-    vertical-align: top;
-    width: calc(33.333% - 40px);
   }
   .product img {
     max-width: 100%;
@@ -87,46 +41,49 @@
   button:hover {
     background-color: #449d44;
   }
-  @media (max-width: 768px) {
-    nav .menu {
-      display: none;
-      flex-direction: column;
-      text-align: left;
-    }
-    nav .menu.show {
-      display: flex;
-    }
-    nav .hamburger {
-      display: block;
-    }
-  }
 </style>
 </head>
 <body>
-  <div>
-    <nav>
-      <div class="hamburger" onclick="toggleMenu()">
-        <div></div>
-        <div></div>
-        <div></div>
-      </div>
-      <div class="menu" id="menu">
-        <a href="#">Home</a>
-        <a href="#">Products</a>
-        <a href="#">About</a>
-        <a href="#">Contact</a>
-      </div>
-      <div class="cart">
-        <img src="https://img.icons8.com/ios-filled/50/ffffff/shopping-cart.png" alt="Cart">
-      </div>
-    </nav>
-  </div>
-<div class="container">
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="#">bAGun</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Products</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">About</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Contact</a>
+        </li>
+      </ul>
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link" href="#">
+            <img src="https://img.icons8.com/ios-filled/50/ffffff/shopping-cart.png" alt="Cart" style="width: 25px; height: 25px;">
+          </a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+<div class="container mt-5">
   <h1>Welcome to bAGun Online Store</h1>
   <!-- Products will be dynamically inserted here -->
-  <div id="product-list"></div>
+  <div id="product-list" class="row"></div>
 </div>
 
+<!-- Bootstrap JS and dependencies -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 <script>
   const products = [
     {
@@ -148,13 +105,15 @@
     const productList = document.getElementById('product-list');
     products.forEach(product => {
       const productDiv = document.createElement('div');
-      productDiv.classList.add('product');
+      productDiv.classList.add('col-md-4');
       productDiv.innerHTML = `
-        <h2>${product.name}</h2>
-        <img src="${product.image}" alt="${product.name}">
-        <p>${product.description}</p>
-        <p>Price: ${product.price}</p>
-        <button type="button" onclick="addToCart('${product.name}')">Add to Cart</button>
+        <div class="product">
+          <h2>${product.name}</h2>
+          <img src="${product.image}" alt="${product.name}">
+          <p>${product.description}</p>
+          <p>Price: ${product.price}</p>
+          <button type="button" onclick="addToCart('${product.name}')">Add to Cart</button>
+        </div>
       `;
       productList.appendChild(productDiv);
     });
@@ -163,11 +122,6 @@
   function addToCart(productName) {
     console.log(`${productName} added to cart!`);
     // Implement add to cart functionality here
-  }
-
-  function toggleMenu() {
-    const menu = document.getElementById('menu');
-    menu.classList.toggle('show');
   }
 
   // Initial render of products
