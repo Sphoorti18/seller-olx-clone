@@ -2,7 +2,8 @@
     {
       name: "Aquarium",
       image: "IMG_20240617_204554 (1).jpg",
-      description: "Description for product 1.",
+      description: "height = 22inch, length = 36inch,
+breadth = 18inch",
       price: "Rs. 8000",
       video: "https://www.youtube.com/embed/tgbNymZ7vqY"
     },
