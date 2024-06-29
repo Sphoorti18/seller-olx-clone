@@ -10,7 +10,8 @@
       name: "Product Name 2",
       image: "image2.jpg",
       description: "Description for product 2.",
-      price: "$30.00"
+      price: "Rs.2000"
+      video: "https://www.youtube.com/embed/tgbNymZ7vqY"
     },
     // Add more products as needed
   ];
