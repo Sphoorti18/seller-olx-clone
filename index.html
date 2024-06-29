@@ -75,9 +75,25 @@
   </nav>
 
 <div class="container mt-5">
+  
   <h1>Welcome to bAGun Online Store</h1>
   <!-- Products will be dynamically inserted here -->
-  <div id="product-list" class="row"></div>
+  <div class="col-md-4 mb-4">
+  <div class="card h-100">
+    <img src="IMAGE_URL" class="card-img-top" alt="PRODUCT_NAME">
+    <div class="card-body">
+      <h5 class="card-title">PRODUCT_NAME</h5>
+      <p class="card-text">PRODUCT_DESCRIPTION</p>
+      <p class="card-text"><strong>Price: PRODUCT_PRICE</strong></p>
+      <!-- Optional iframe for product video -->
+      <div class="embed-responsive embed-responsive-16by9 mb-2" style="display: VIDEO_DISPLAY;">
+        <iframe class="embed-responsive-item" src="PRODUCT_VIDEO_URL" allowfullscreen></iframe>
+      </div>
+      <button class="btn btn-success" onclick="addToCart('PRODUCT_NAME')">Add to Cart</button>
+    </div>
+  </div>
+</div>
+
 </div>
 
 <!-- Bootstrap JS and dependencies -->
