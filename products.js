@@ -1,7 +1,7 @@
  const products = [
     {
       name: "Aquarium",
-      image: "image1.jpg",
+      image: "IMG_20240617_204554 (1).jpg",
       description: "Description for product 1.",
       price: "Rs. 8000",
       video: "https://www.youtube.com/embed/tgbNymZ7vqY"
