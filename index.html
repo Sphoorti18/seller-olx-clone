@@ -75,27 +75,10 @@
   </nav>
 
 <div class="container mt-5">
-  
   <h1>Welcome to bAGun Online Store</h1>
   <!-- Products will be dynamically inserted here -->
-  <div class="col-md-4 mb-4">
-  <div class="card h-100">
-    <img src="IMAGE_URL" class="card-img-top" alt="AQUARIUM">
-    <div class="card-body">
-      <h5 class="card-title">AQUARIUM</h5>
-      <p class="card-text">PRODUCT_DESCRIPTION</p>
-      <p class="card-text"><strong>Price: Rs.8000</strong></p>
-      <!-- Optional iframe for product video -->
-      <div class="embed-responsive embed-responsive-16by9 mb-2" style="display: VIDEO_DISPLAY;">
-        <iframe class="embed-responsive-item" src="PRODUCT_VIDEO_URL" allowfullscreen></iframe>
-      </div>
-      <button class="btn btn-success" onclick="addToCart('PRODUCT_NAME')">Add to Cart</button>
-    </div>
-  </div>
-</div>
-
-</div>
-
+  <div id="product-list" class="row"></div>
+</div>  Create a template of a product within <div> 
 <!-- Bootstrap JS and dependencies -->
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
